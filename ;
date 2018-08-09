@@ -1,0 +1,22 @@
+#include <ncurses.h>
+#include <iostream>
+
+int main(int argc, char** argv){
+    WINDOW* window = initscr();
+    if(window == NULL){
+        std::cerr << "Unable to initialize error!";
+        return 0;
+    }
+    cbreak();
+    noecho();
+    keypad(window, 1);
+    printw("Hello World!");
+    refresh();
+    for(char i = 32; i < 100; i++){
+        waddch(window, i);
+        refresh();
+    }
+    getch();
+    endwin();
+    return 0;
+}
