@@ -17,7 +17,7 @@ int main(int argc, char** argv){
 	noecho();
 	keypad(window, 1);
 	curs_set(0);
-	
+    wrefresh(window);	
 
 	if(argc > 1){
 		MenuGroup mg(height, width, 0, 0, argv[1]);
@@ -30,7 +30,6 @@ int main(int argc, char** argv){
 	}
     else{
 	    printw("Pass, as a command line argument, the file you would like to parse!");
-	    wrefresh(window);
     }
 
 	//int choice = menu.Run();

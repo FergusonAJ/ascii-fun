@@ -8,6 +8,7 @@ Menu::Menu(int height, int width, int y, int x, std::string prompt, std::vector<
 	mWindow  = newwin(height, width, y, x);
 	mPrompt = prompt;
 	box(mWindow, 0, 0);
+    Render();
 }
 
 Menu::~Menu(){
@@ -15,7 +16,8 @@ Menu::~Menu(){
 }
 
 int Menu::Run(){
-	int input = 0;
+	Render();
+    int input = 0;
 	while(input != ' '){
 		input = getch();
 		switch(input){

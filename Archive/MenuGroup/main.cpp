@@ -7,7 +7,7 @@
 int main(int argc, char** argv){
 	WINDOW* window = initscr();
 	if(window == NULL){
-		std::cerr << "Unable to initialize error!";
+		std::cerr << "Error: Unable to initialize window!";
 		return 0;
 	}
 	int width, height;
@@ -17,17 +17,7 @@ int main(int argc, char** argv){
 	noecho();
 	keypad(window, 1);
 	curs_set(0);
-	
-	printw("Hello World!");
-	wrefresh(window);
-
-	/*const char* choices[4] = {
-		"Continue", 
-		"New Game", 
-		"Options", 
-		"Exit"};
-	const char* prompt = "Welcome! What would you like to do!";
-	Menu menu(height, width, 0, 0, prompt, choices, 4);*/
+    wrefresh(window);	
 
 	if(argc > 1){
 		MenuGroup mg(height, width, 0, 0, argv[1]);
@@ -38,6 +28,10 @@ int main(int argc, char** argv){
 			mvwaddstr(window, i, 0, oss.str().c_str());
 		}
 	}
+    else{
+	    printw("Pass, as a command line argument, the file you would like to parse!");
+    }
+
 	//int choice = menu.Run();
 	//waddstr(window, "You chose: ");
 	//waddstr(window, choices[choice]);
