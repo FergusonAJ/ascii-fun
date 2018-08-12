@@ -1,7 +1,7 @@
 #include <ncurses.h>
 #include <iostream>
 #include <sstream>
-#include "menuGroup.h"
+#include "Menu/menuGroup.h"
 
 
 int main(int argc, char** argv){
